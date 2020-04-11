@@ -12,7 +12,6 @@
     "node": "8.16.x"
   },
   "scripts": {
-    "start": "node index.js",
-    "build": "webpack"
+    "start": "node index.js"
   }
 }
