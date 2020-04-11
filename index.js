@@ -8,7 +8,9 @@ const multer = require("multer");
 const csv = require("fast-csv");
 
 const Router = express.Router;
-const upload = multer({ dest: "tmp/csv/" });
+const upload = multer({
+  dest: "tmp/csv/"
+});
 const app = express();
 const router = new Router();
 const server = http.createServer(app);
@@ -39,6 +41,9 @@ router.post("/", upload.single("file"), function (req, res) {
 });
 app.use(express.static("public"));
 app.use("/upload-csv", router);
+app.get('/', function (req, res) {
+  res.sendfile(__dirname + '/public/index.html');
+});
 
 // Start server
 function startServer() {
