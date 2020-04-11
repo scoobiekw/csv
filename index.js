@@ -16,7 +16,12 @@ const router = new Router();
 const server = http.createServer(app);
 const port = 9000;
 
+
 router.post("/", upload.single("file"), function (req, res) {
+
+
+
+
   const fileRows = [];
   console.log(req.file.path);
   // open uploaded file
@@ -32,9 +37,41 @@ router.post("/", upload.single("file"), function (req, res) {
       var resArray = [];
       fileRows.shift();
       for (i = 0; i < fileRows.length; i++) {
+        //build json from CSV
         resArray[i] = fileRows[i][1];
       }
-      var resJSON = JSON.stringify(resArray);
+      var testJSON = {
+        "MultilevelIVR": {
+          "Menu": [{
+            "Extension": "21344",
+            "Name": "1344 - Indianapolis",
+            "Language": "English (United States)",
+            "Prompt": {
+              "Name": "Spring Mobile - Welcome Greeting.mp3",
+              "TextToSpeech": "false"
+            },
+            "CallHandling": {
+              "DigitalKeyInput": [{
+                "Key": "1",
+                "Action": "ForwardToExtension",
+                "Destination": "41344"
+              }, {
+                "Key": "2",
+                "Action": "ForwardToExtension",
+                "Destination": "51344"
+              }, {
+                "Key": "3",
+                "Action": "ForwardToExtension",
+                "Destination": "61344"
+              }]
+            }
+          }]
+        }
+      };
+
+      //var resJSON = JSON.stringify(resArray);
+      var resJSON = JSON.stringify(testJSON);
+      console.log(resJSON);
       res.send(resJSON);
       //process "fileRows" and respond
     });

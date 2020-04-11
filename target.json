@@ -1,0 +1,30 @@
+{
+  "MultilevelIVR": {
+    "Menu": {
+      "Extension": "21344",
+      "Name": "1344 - Indianapolis",
+      "Language": "English (United States)",
+      "Prompt": {
+        "Name": "Spring Mobile - Welcome Greeting.mp3",
+        "TextToSpeech": "false"
+      },
+      "CallHandling": {
+        "DigitalKeyInput": {
+          "Key": "1",
+          "Action": "ForwardToExtension",
+          "Destination": "41344"
+        },
+        {
+          "Key": "2",
+          "Action": "ForwardToExtension",
+          "Destination": "51344"
+        },
+        {
+          "Key": "3",
+          "Action": "ForwardToExtension",
+          "Destination": "61344"
+        }
+      }
+    }
+  }
+}
