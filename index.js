@@ -33,7 +33,7 @@ router.post("/", upload.single("file"), function (req, res) {
         resArray[i] = fileRows[i][1];
       }
       var resJSON = JSON.stringify(resArray);
-      res.send(resJSON);
+      res.send("test");
       //process "fileRows" and respond
     });
 });
