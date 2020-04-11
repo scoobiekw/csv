@@ -30,7 +30,7 @@ router.post("/", upload.single("file"), function (req, res) {
       var resArray = [];
       fileRows.shift();
       for (i = 0; i < fileRows.length; i++) {
-        resJSON[i] = fileRows[i][1];
+        resArray[i] = fileRows[i][1];
       }
       var resJSON = JSON.stringify(resArray);
       res.send(resJSON);
