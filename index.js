@@ -37,7 +37,7 @@ router.post("/", upload.single("file"), function (req, res) {
       //process "fileRows" and respond
     });
 });
-
+app.use(express.static("public"));
 app.use("/upload-csv", router);
 
 // Start server
